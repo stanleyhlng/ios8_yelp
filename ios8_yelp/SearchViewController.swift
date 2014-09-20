@@ -8,22 +8,32 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     
     @IBOutlet weak var tableView: UITableView!
+    var searchBar: UISearchBar?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         println("SearchViewController.viewDidLoad")
+        customizeNavBarTitleView()
         setupTableView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func customizeNavBarTitleView() {
+        searchBar = UISearchBar()
+        searchBar?.delegate = self
+        searchBar?.searchBarStyle = UISearchBarStyle.Minimal
+
+        navigationItem.titleView = searchBar
     }
     
     func setupTableView() {
@@ -50,6 +60,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         println("SearchViewController.didSelectRowAtIndexPath: \(indexPath.row)")
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    // MARK: - UISearchBarDelegate
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        println("SearchViewController.searchBarSearchButtonClicked")
     }
     
     /*

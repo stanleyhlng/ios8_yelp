@@ -8,13 +8,16 @@
 
 import UIKit
 
-class FiltersViewController: UIViewController {
+class FiltersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         println("FiltersViewController.viewDidLoad")
+        setupTableView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,11 +25,42 @@ class FiltersViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setupTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
     @IBAction func handleCancelButton(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: { () -> Void in
         })
     }
 
+    @IBAction func handleSearchButton(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: { () -> Void in
+        })
+    }
+    
+    // MARK: - UITableViewDataSource
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "")
+        cell.textLabel?.text = "filters"
+        return cell
+    }
+    
+    // MARK: - UITableViewDelegate
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println("FiltersViewController.didSelectRowAtIndexPath: \(indexPath.row)")
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

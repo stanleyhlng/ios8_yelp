@@ -8,13 +8,17 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         println("SearchViewController.viewDidLoad")
+        setupTableView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,7 +26,32 @@ class SearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setupTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
 
+    // MARK: - UITableViewDataSource
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "")
+        cell.textLabel?.text = "search"
+        return cell
+    }
+
+    // MARK: - UITableViewDelegate
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println("SearchViewController.didSelectRowAtIndexPath: \(indexPath.row)")
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, FiltersViewControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var searchBar: UISearchBar!
@@ -73,6 +73,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.delegate = self
     }
 
+    // MARK: - FiltersViewControllerDelegate
+    
+    func searchWithFilters(message: String) {
+        println("SearchViewController.searchWithFilters")
+    }
+    
     // MARK: - UITableViewDataSource
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -100,14 +106,19 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         println("SearchViewController.searchBarSearchButtonClicked")
     }
     
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.destinationViewController is UINavigationController {
+        
+            var nav = segue.destinationViewController as UINavigationController
+            
+            if nav.viewControllers[0] is FiltersViewController {
+                var controller = nav.viewControllers[0] as FiltersViewController
+                controller.delegate = self            
+            }
+        }
+        
     }
-    */
 
 }

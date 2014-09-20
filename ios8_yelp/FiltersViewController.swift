@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol FiltersViewControllerDelegate {
+    func searchWithFilters(message: String)
+}
+
 class FiltersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    var delegate: FiltersViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +42,8 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
 
     @IBAction func handleSearchButton(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: { () -> Void in
+            println("FiltersViewController.done")
+            self.delegate?.searchWithFilters("abc")
         })
     }
     

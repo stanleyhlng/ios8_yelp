@@ -13,11 +13,38 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Search" id="j6a-0I-eyx"/>
+                    <navigationItem key="navigationItem" title="Search" id="j6a-0I-eyx">
+                        <barButtonItem key="leftBarButtonItem" title="Filters" id="25g-YD-q6a">
+                            <connections>
+                                <segue destination="Wdr-Mh-iwh" kind="modal" id="wQk-eO-QDl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="354" y="289"/>
+        </scene>
+        <!--Filters-->
+        <scene sceneID="a7d-ge-r7Y">
+            <objects>
+                <viewController id="fKe-sW-l9M" customClass="FiltersViewController" customModule="ios8_yelp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j6f-gu-IuU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Filters" id="OJs-Vc-8Dt">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="umE-bE-GUY">
+                            <connections>
+                                <action selector="handleCancelButton:" destination="fKe-sW-l9M" id="ax6-Ig-1F8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hj1-kc-lmS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1406" y="289"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8NR-f3-A2Y">
@@ -36,6 +63,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qCC-oc-4Lt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-178" y="289"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cri-he-XBk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wdr-Mh-iwh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Geg-Ky-V4w">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fKe-sW-l9M" kind="relationship" relationship="rootViewController" id="Ow8-L5-VUg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MNM-iV-r6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="874" y="289"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

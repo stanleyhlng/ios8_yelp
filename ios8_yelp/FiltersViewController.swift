@@ -22,6 +22,10 @@ class FiltersViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func handleCancelButton(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: { () -> Void in
+        })
+    }
 
     /*
     // MARK: - Navigation

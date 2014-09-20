@@ -10,9 +10,15 @@ import UIKit
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
-    
     @IBOutlet weak var tableView: UITableView!
-    var searchBar: UISearchBar?
+    var searchBar: UISearchBar!
+    var client: YelpClient!
+
+    // You can register for Yelp API keys here: http://www.yelp.com/developers/manage_api_keys
+    let yelpConsumerKey = "vxKwwcR_NMQ7WaEiQBK_CA"
+    let yelpConsumerSecret = "33QCvh5bIF5jIHR5klQr7RtBDhQ"
+    let yelpToken = "uRcRswHFYa1VkDrGV6LAW2F8clGh5JHV"
+    let yelpTokenSecret = "mqtKIxMIR4iBtBPZCmCLEb-Dz3Y"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +27,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         println("SearchViewController.viewDidLoad")
         customizeNavBarTitleView()
         setupTableView()
+        doFetch(["term": "Thai"])
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +41,31 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchBar?.searchBarStyle = UISearchBarStyle.Minimal
 
         navigationItem.titleView = searchBar
+    }
+    
+    func doFetch(params: [String: String]) {
+        client = YelpClient(consumerKey: yelpConsumerKey, consumerSecret: yelpConsumerSecret, accessToken: yelpToken, accessSecret: yelpTokenSecret)
+        client.searchWithParams(params,
+            success: {
+                (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                    println(response)
+            },
+            failure: {
+                (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                    println(error)
+            }
+        )
+        
+//        client.searchWithTerm("Thai",
+//            success: {
+//                (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+//                println(response)
+//            },
+//            failure: {
+//                (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+//                println(error)
+//            }
+//        )
     }
     
     func setupTableView() {

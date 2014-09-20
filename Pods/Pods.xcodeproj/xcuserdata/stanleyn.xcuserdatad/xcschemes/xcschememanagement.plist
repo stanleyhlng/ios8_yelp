@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-BDBOAuth1Manager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-GSProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>03FD7EC6FB70494FAB874DB7</key>
+		<key>075DC780EC3543FBBD26A390</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>39DBA1160C2147A985C1C417</key>
+		<key>226A226005A747748E4F8B73</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AA38FE58BFE74162A6A6C5EC</key>
+		<key>65EA8376D5EF4D2BBF79202F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D95CC06EB89C4E348429CA42</key>
+		<key>7DA5EBE7918641A2A5CEFCB1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DB89BF845874434195B94D46</key>
+		<key>A8E6BD234CD142BE9B34C695</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F4B20273A25241D39014F9B0</key>
+		<key>BBFD07D0CD1E4F2293400E3F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EB8634EC045B438BB9F25059</key>
 		<dict>
 			<key>primary</key>
 			<true/>

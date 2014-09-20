@@ -15,6 +15,7 @@
 		2011BECB19CDDBC600DF29ED /* ios8_yelpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2011BECA19CDDBC600DF29ED /* ios8_yelpTests.swift */; };
 		2011BEDE19CDE4CD00DF29ED /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2011BEDD19CDE4CD00DF29ED /* SearchViewController.swift */; };
 		2011BEE019CDE4E800DF29ED /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2011BEDF19CDE4E800DF29ED /* FiltersViewController.swift */; };
+		20B8AF3919CDFAB600AFF7ED /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B8AF3819CDFAB600AFF7ED /* YelpClient.swift */; };
 		CD5754DD955F43C68415F88E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C02B55716244C7A1AD9DA3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		2011BED519CDE03300DF29ED /* ios8_yelp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ios8_yelp-Bridging-Header.h"; sourceTree = "<group>"; };
 		2011BEDD19CDE4CD00DF29ED /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2011BEDF19CDE4E800DF29ED /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
+		20B8AF3819CDFAB600AFF7ED /* YelpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpClient.swift; sourceTree = "<group>"; };
 		36C02B55716244C7A1AD9DA3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 			children = (
 				2011BEDB19CDE49C00DF29ED /* UI */,
 				2011BED419CDE00C00DF29ED /* Controllers */,
+				20B8AF3619CDFA9400AFF7ED /* Clients */,
 				2011BEBB19CDDBC600DF29ED /* Images.xcassets */,
 				2011BEBD19CDDBC600DF29ED /* LaunchScreen.xib */,
 				2011BED519CDE03300DF29ED /* ios8_yelp-Bridging-Header.h */,
@@ -172,6 +175,22 @@
 				2011BEB819CDDBC600DF29ED /* Main.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		20B8AF3619CDFA9400AFF7ED /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				20B8AF3719CDFAA200AFF7ED /* Yelp */,
+			);
+			name = Clients;
+			sourceTree = "<group>";
+		};
+		20B8AF3719CDFAA200AFF7ED /* Yelp */ = {
+			isa = PBXGroup;
+			children = (
+				20B8AF3819CDFAB600AFF7ED /* YelpClient.swift */,
+			);
+			name = Yelp;
 			sourceTree = "<group>";
 		};
 		C522F38C028A4727A17CDE40 /* Frameworks */ = {
@@ -317,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20B8AF3919CDFAB600AFF7ED /* YelpClient.swift in Sources */,
 				2011BEDE19CDE4CD00DF29ED /* SearchViewController.swift in Sources */,
 				2011BEB719CDDBC600DF29ED /* ViewController.swift in Sources */,
 				2011BEE019CDE4E800DF29ED /* FiltersViewController.swift in Sources */,

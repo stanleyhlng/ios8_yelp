@@ -20,6 +20,9 @@ PODS:
   - AFNetworking/UIKit (2.4.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - BDBOAuth1Manager (1.4.0):
+    - AFNetworking/NSURLConnection (~> 2.4.0)
+    - AFNetworking/NSURLSession (~> 2.4.0)
   - GSProgressHUD (0.3)
   - HexColors (2.2.1)
   - Mantle (1.5):
@@ -29,6 +32,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.4.1)
+  - BDBOAuth1Manager
   - GSProgressHUD (~> 0.3)
   - HexColors (~> 2.2)
   - Mantle (~> 1.5)
@@ -36,6 +40,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
+  BDBOAuth1Manager: 4f0967110286edd4c7961cf48a4eb242c64137a1
   GSProgressHUD: b8985c9d8d20857defba8ede5306c7f0238b11d2
   HexColors: 01384d2bbe8dc4ffa43c3b4135db6e976952d153
   Mantle: c67a7e45e14196ed42b2a7cbb98ff6a9920e6b92

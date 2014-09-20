@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        customizeNavBarAppearance()
+        customizeStatusBar()
+        
         return true
     }
 
@@ -41,6 +45,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func customizeNavBarAppearance() {
+        let titleDict = [
+            NSForegroundColorAttributeName: UIColor.whiteColor(),
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Bold", size: 16.0)
+        ]
+        var appearance = UINavigationBar.appearance()
+        appearance.titleTextAttributes = titleDict
+        appearance.tintColor = UIColor(hexString: "#F7F7F7")
+        appearance.barTintColor = UIColor(hexString: "#BA0C03")
+    }
 
+    func customizeStatusBar() {
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+    }
 }
 

@@ -27,7 +27,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         println("SearchViewController.viewDidLoad")
         customizeNavBarTitleView()
         setupTableView()
-        doFetch(["term": "Thai"])
+        //doFetch(["term": "Thai"])
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,12 +39,16 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchBar = UISearchBar()
         searchBar?.delegate = self
         searchBar?.searchBarStyle = UISearchBarStyle.Minimal
+        searchBar?.placeholder = ""
 
         navigationItem.titleView = searchBar
     }
     
-    func doFetch(params: [String: String]) {
+    func doFetch(term: String) {
         client = YelpClient(consumerKey: yelpConsumerKey, consumerSecret: yelpConsumerSecret, accessToken: yelpToken, accessSecret: yelpTokenSecret)
+        
+        let params = Yelp.sharedInstace.getSearchParamsWithTerm(term: term)
+        
         client.searchWithParams(params,
             success: {
                 (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
@@ -67,7 +71,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
 //            }
 //        )
     }
-    
+
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+
     func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -77,21 +85,21 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func searchWithFilters(message: String) {
         println("SearchViewController.searchWithFilters")
+        doFetch(searchBar.text)
     }
     
     // MARK: - UITableViewDataSource
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
-    }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "")
         cell.textLabel?.text = "search"
         return cell
     }
 
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
     // MARK: - UITableViewDelegate
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -104,6 +112,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         println("SearchViewController.searchBarSearchButtonClicked")
+        
+        searchBar.resignFirstResponder()
+        
     }
     
     // MARK: - Navigation
@@ -115,7 +126,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             
             if nav.viewControllers[0] is FiltersViewController {
                 var controller = nav.viewControllers[0] as FiltersViewController
-                controller.delegate = self            
+                controller.delegate = self
             }
         }
         

@@ -42,6 +42,7 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
     func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     @IBAction func handleCancelButton(sender: UIBarButtonItem) {

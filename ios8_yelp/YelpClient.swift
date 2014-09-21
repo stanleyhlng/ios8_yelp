@@ -56,7 +56,7 @@ class YelpClient: BDBOAuth1RequestOperationManager {
             parameters: parameters,
             success: {
                 (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-                //println(response)
+                println(response)
                 //println(Business.parseBusinesses(response))
                 success(operation, Business.parseBusinesses(response))
             },

@@ -36,6 +36,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        tableView.reloadData()
+    }
+
     func customizeNavBarTitleView() {
         searchBar = UISearchBar()
         searchBar?.delegate = self
@@ -50,17 +54,24 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         
         let params = Yelp.sharedInstace.getSearchParamsWithTerm(term: term)
         
+        GSProgressHUD.show()
         client.searchWithParams(params,
             success: {
                 (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-                    // println(response)
-                    self.businesses = response as [Business]
-                    println("business.count = \(self.businesses.count)")
-                    self.tableView.reloadData()
+                
+                //println(response)
+                
+                self.businesses = response as [Business]
+                println("business.count = \(self.businesses.count)")
+                self.tableView.rowHeight = UITableViewAutomaticDimension
+                self.tableView.reloadData()
+                
+                GSProgressHUD.dismiss()
             },
             failure: {
                 (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                    println(error)
+                println(error)
+                GSProgressHUD.dismiss()
             }
         )
         
@@ -75,9 +86,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
 //            }
 //        )
     }
-
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
 
     func setupTableView() {
@@ -99,12 +110,16 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         //let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "")
         //cell.textLabel?.text = "search"
         let cell = tableView.dequeueReusableCellWithIdentifier("BusinessTableViewCell") as BusinessTableViewCell
-        cell.configure()
+        if !businesses.isEmpty {
+            cell.index = indexPath.row
+            cell.business = businesses[indexPath.row] as Business
+            cell.configure()
+        }
         return cell
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return businesses.count
     }
     
     // MARK: - UITableViewDelegate
@@ -121,7 +136,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         println("SearchViewController.searchBarSearchButtonClicked")
         
         searchBar.resignFirstResponder()
-        
+        doFetch(searchBar.text);
     }
     
     // MARK: - Navigation

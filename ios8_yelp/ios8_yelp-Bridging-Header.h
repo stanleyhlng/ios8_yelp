@@ -7,3 +7,4 @@
 #import "BDBOAuth1RequestOperationManager.h"
 #import <Mantle.h>
 #import "GSProgressHUD.h"
+#import "UIImageView+AFNetworking.h"

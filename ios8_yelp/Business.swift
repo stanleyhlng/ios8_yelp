@@ -10,10 +10,25 @@ import UIKit
 
 class Business: MTLModel, MTLJSONSerializing {
     var id: NSString!
+    var name: NSString!
+    var rating: NSString!
+    var ratingImageUrl: NSString!
+    var reviewCount: NSString!
+    var location: NSDictionary!
+    var locationAddress: NSArray!
+    var categories: NSArray!
+    var imageUrl: NSString!
     
     class func JSONKeyPathsByPropertyKey() -> [NSObject: AnyObject]! {
         return [
-            "id": "id"
+            "id": "id",
+            "name": "name",
+            "rating": "rating",
+            "ratingImageUrl": "rating_img_url",
+            "reviewCount": "review_count",
+            "location": "location",
+            "categories": "categories",
+            "imageUrl": "image_url"
         ]
     }
     

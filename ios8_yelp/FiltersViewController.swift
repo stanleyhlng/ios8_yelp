@@ -25,6 +25,7 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
         ]
     var collapsedCountForCategories = 3
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

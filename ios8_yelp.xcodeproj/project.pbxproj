@@ -18,6 +18,7 @@
 		20B8AF3919CDFAB600AFF7ED /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B8AF3819CDFAB600AFF7ED /* YelpClient.swift */; };
 		20B8AF3E19CE43EB00AFF7ED /* Yelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B8AF3D19CE43EB00AFF7ED /* Yelp.swift */; };
 		20E696B219CE90A300083DDD /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E696B119CE90A300083DDD /* Business.swift */; };
+		20E696B619CE961A00083DDD /* BusinessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E696B519CE961A00083DDD /* BusinessTableViewCell.swift */; };
 		CD5754DD955F43C68415F88E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C02B55716244C7A1AD9DA3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		20B8AF3819CDFAB600AFF7ED /* YelpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpClient.swift; sourceTree = "<group>"; };
 		20B8AF3D19CE43EB00AFF7ED /* Yelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Yelp.swift; sourceTree = "<group>"; };
 		20E696B119CE90A300083DDD /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		20E696B519CE961A00083DDD /* BusinessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessTableViewCell.swift; sourceTree = "<group>"; };
 		36C02B55716244C7A1AD9DA3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -170,6 +172,7 @@
 		2011BEDB19CDE49C00DF29ED /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				20E696B319CE95F200083DDD /* Table View Cells */,
 				2011BEDC19CDE4A000DF29ED /* Storyboards */,
 			);
 			name = UI;
@@ -227,6 +230,22 @@
 			isa = PBXGroup;
 			children = (
 				20E696B119CE90A300083DDD /* Business.swift */,
+			);
+			name = Business;
+			sourceTree = "<group>";
+		};
+		20E696B319CE95F200083DDD /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				20E696B419CE95FA00083DDD /* Business */,
+			);
+			name = "Table View Cells";
+			sourceTree = "<group>";
+		};
+		20E696B419CE95FA00083DDD /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				20E696B519CE961A00083DDD /* BusinessTableViewCell.swift */,
 			);
 			name = Business;
 			sourceTree = "<group>";
@@ -379,6 +398,7 @@
 				2011BEDE19CDE4CD00DF29ED /* SearchViewController.swift in Sources */,
 				2011BEB719CDDBC600DF29ED /* ViewController.swift in Sources */,
 				20B8AF3E19CE43EB00AFF7ED /* Yelp.swift in Sources */,
+				20E696B619CE961A00083DDD /* BusinessTableViewCell.swift in Sources */,
 				2011BEE019CDE4E800DF29ED /* FiltersViewController.swift in Sources */,
 				2011BEB519CDDBC600DF29ED /* AppDelegate.swift in Sources */,
 			);

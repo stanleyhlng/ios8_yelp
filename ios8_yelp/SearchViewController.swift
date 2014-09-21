@@ -13,6 +13,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
     var searchBar: UISearchBar!
     var client: YelpClient!
+    var businesses: [Business] = []
 
     // You can register for Yelp API keys here: http://www.yelp.com/developers/manage_api_keys
     let yelpConsumerKey     = "vxKwwcR_NMQ7WaEiQBK_CA"
@@ -52,7 +53,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         client.searchWithParams(params,
             success: {
                 (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-                    println(response)
+                    // println(response)
+                    self.businesses = response as [Business]
+                    println("business.count = \(self.businesses.count)")
+                    self.tableView.reloadData()
             },
             failure: {
                 (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
@@ -79,6 +83,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
 
     // MARK: - FiltersViewControllerDelegate
@@ -91,8 +96,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     // MARK: - UITableViewDataSource
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "")
-        cell.textLabel?.text = "search"
+        //let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "")
+        //cell.textLabel?.text = "search"
+        let cell = tableView.dequeueReusableCellWithIdentifier("BusinessTableViewCell") as BusinessTableViewCell
+        cell.configure()
         return cell
     }
 

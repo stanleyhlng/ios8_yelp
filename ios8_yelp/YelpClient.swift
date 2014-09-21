@@ -51,8 +51,17 @@ class YelpClient: BDBOAuth1RequestOperationManager {
         }
         
         println("parameters: \(parameters)")
-        
-        return self.GET("search", parameters: parameters, success: success, failure: failure)
+
+        return self.GET("search",
+            parameters: parameters,
+            success: {
+                (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                //println(response)
+                //println(Business.parseBusinesses(response))
+                success(operation, Business.parseBusinesses(response))
+            },
+            failure: failure
+        )
     }
 
 }

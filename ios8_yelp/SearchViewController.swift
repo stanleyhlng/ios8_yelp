@@ -27,7 +27,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         println("SearchViewController.viewDidLoad")
         customizeNavBarTitleView()
         setupTableView()
-        //doFetch(["term": "Thai"])
+        doFetch("Thai")
     }
 
     override func didReceiveMemoryWarning() {

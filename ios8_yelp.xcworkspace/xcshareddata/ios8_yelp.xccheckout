@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0DBA6F48-F2FE-4D0B-A066-3C6F9E68D6EF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ios8_yelp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E10FA0FE9C775EF87246A4FA1991056787229FFC</key>
+		<string>github.com:stanleyhlng/ios8_yelp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ios8_yelp.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E10FA0FE9C775EF87246A4FA1991056787229FFC</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:stanleyhlng/ios8_yelp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E10FA0FE9C775EF87246A4FA1991056787229FFC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E10FA0FE9C775EF87246A4FA1991056787229FFC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ios8_yelp</string>
+		</dict>
+	</array>
+</dict>
+</plist>
